@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="secondarycolourgray1">#969696</color>
+    //Dunkles Grau-secondary Colour
+    <color name="primarycolourgray2">#EEDFDFDF</color>
+    //Helles Grau-Primary Colour
+    <color name="fontgrey">#474646</color>
+</resources>
