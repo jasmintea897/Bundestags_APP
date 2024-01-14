@@ -7,15 +7,22 @@ import android.widget.ListView;
 public class plaenarprotokolleActivity extends AppCompatActivity {
 
     public void fillListView(String[] data) {
+        CustomBaseAdapter plaenarprotokolleArrayAdapter =
+                new CustomBaseAdapter(getApplicationContext(), data,
+                        getPlaenarprotokolleImages(data.length));
 
+        listView.setAdapter(plaenarprotokolleArrayAdapter);
     }
 
-    String plaenarprotokolle[]={"Protokoll_1", "Protokoll_2", "Protokoll_3", "Protokoll_4", "Protokoll_5"};
-    //Hier müssen wir dann hinbekommen das die Sachen aus der API in die Schnittstelle eingefügt werden
+    private int[] getPlaenarprotokolleImages(int length) {
+    }
 
-    int AdlerImages [] = {R.drawable.adler, R.drawable.adler,R.drawable.adler,R.drawable.adler,R.drawable.adler,};
-    //Hier müssen wir Hinbekommen das X-mal der Adler angezeigt wird, ohne das wir den jedes mal neu anlegen müssen
 
+    String plaenarprotokolle[] = {"Protokoll_1", "Protokoll_2", "Protokoll_3", "Protokoll_4", "Protokoll_5"};
+    // Hier müssen wir dann hinbekommen, dass die Sachen aus der API in die Schnittstelle eingefügt werden
+
+    int adlerImages[] = {R.drawable.adler, R.drawable.adler, R.drawable.adler, R.drawable.adler, R.drawable.adler};
+    // Hier müssen wir hinbekommen, dass X-mal der Adler angezeigt wird, ohne dass wir den jedes Mal neu anlegen müssen
 
     ListView listView;
 
@@ -24,8 +31,11 @@ public class plaenarprotokolleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plenarprotokolle);
         listView = (ListView) findViewById(R.id.customListView);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(),plaenarprotokolle,AdlerImages );
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), plaenarprotokolle, adlerImages);
         listView.setAdapter(customBaseAdapter);
-
     }
 }
+ 
+
+
+

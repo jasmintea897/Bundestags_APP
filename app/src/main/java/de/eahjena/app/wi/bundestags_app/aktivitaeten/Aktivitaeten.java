@@ -9,7 +9,7 @@ public class Aktivitaeten {
         private String datum;
         private String aktualisiert;
         private String titel;
-        // List<PersonRole> personRoles;
+        // List<Aktivitatenrole> aktivitaetenRoles;
 
         public String getId() {
             return id;
@@ -27,23 +27,15 @@ public class Aktivitaeten {
             return dokumentart;
         }
 
-        public String getTyp() {return typ;}
-
         public Integer getWahlperiode() {
             return wahlperiode;
-        }
-
-        public String getAktualisiert() {
-            return aktualisiert;
         }
 
         public String getDatum() {
             return datum;
         }
 
-        public String getAktualisiert() {
-            return aktualisiert;
-        }
+        public String getAktualisiert() {return aktualisiert; }
 
         public String getTitel() {
             return titel;

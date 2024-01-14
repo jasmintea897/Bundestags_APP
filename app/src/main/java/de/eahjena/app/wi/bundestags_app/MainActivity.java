@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openActivity_personen() {Intent intent = new Intent(this, PersonenActivity.class);
+    private void openActivity_personen() {Intent intent = new Intent(this, aktivitaetenActivity.class);
         startActivity(intent);
     }
 

@@ -8,11 +8,15 @@ import java.io.IOException;
 import java.util.List;
 
 import de.eahjena.app.wi.bundestags_app.PersonenActivity;
+import de.eahjena.app.wi.bundestags_app.aktivitaetenActivity;
+import de.eahjena.app.wi.bundestags_app.aktivitaeten.Aktivitaeten;
+import de.eahjena.app.wi.bundestags_app.aktivitaeten.AktivitaetenListResponse;
 import de.eahjena.app.wi.bundestags_app.personen.Person;
 import de.eahjena.app.wi.bundestags_app.personen.PersonListResponse;
 import de.eahjena.app.wi.bundestags_app.plaenarprotokolle.Plaenarprotokolle;
 import de.eahjena.app.wi.bundestags_app.plaenarprotokolle.PlaenarprotokolleListResponse;
 import de.eahjena.app.wi.bundestags_app.plaenarprotokolleActivity;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -36,6 +40,22 @@ public class BundestagApiClient {
         String personsUri = urlBundestagApi + "person?f.wahlperiode=20&format=json";
         requestBundestagApi(personsUri, personenActivity);
     }
+    public void requestActivity (aktivitaetenActivity aktivitaetenActivity) {
+        System.out.println("Exec requestAktivitaeten");
+
+        // Zusammenbauen der URL: hier mit Filter auf Wahlperiode 20, musst auch immer mit angeben, dass du JSON willst
+        String aktivitaetenUri = urlBundestagApi + "aktivitaeten?f.aktualisiert.start=2021-01-01&format=json";
+        requestBundestagApi(aktivitaetenUri, aktivitaetenActivity);
+    }
+
+    public void requestPlaenarprotokolle(plaenarprotokolleActivity plaenarprotokolleActivity) {
+        System.out.println("Exec requestPlaenarprotokolle");
+
+        // Zusammenbauen der URL: hier mit Filter auf Wahlperiode 20, musst auch immer mit angeben, dass du JSON willst
+        String plaenarprotokolleUri = urlBundestagApi + "plenarprotokoll?f.zuordnung=BT&f.datum.start=2021-01-01&apikey=GmEPb1B.bfqJLIhcGAsH9fTJevTglhFpCoZyAAAdhp&format=json";
+        requestBundestagApi(plaenarprotokolleUri, plaenarprotokolleActivity);
+    }
+
 
     // Methode zum Umwandeln von JSON (kommt hier als String in Methode rein) in Objekt und dann in ein Array von Strings die du an der Oberfläche anzeigen möchtest
     public final String[] processPersonResponse(String responseJson){
@@ -145,12 +165,12 @@ public class BundestagApiClient {
                         System.out.println("Bundestag API was successfully requested! Response Body: " + responseJson);
 
                         // Überprüfe den Typ der Activity und handle entsprechend
-                        if (activity instanceof PersonenActivity) {
-                            PersonenActivity personenActivity = (PersonenActivity) activity;
+                        if (activity instanceof aktivitaetenActivity) {
+                            aktivitaetenActivity personenActivity = (aktivitaetenActivity) activity;
                             personenActivity.runOnUiThread(new Runnable() { // jetzt wieder zurückwechseln auf den Haupt-Thread
                                 @Override
                                 public void run() {
-                                    System.out.println("Start to update table for PersonenActivity...");
+                                    System.out.println("Start to update table for AktivitaetenActivity...");
                                     personenActivity.fillListView(processPersonResponse(responseJson));
                                 }
                             });
@@ -163,8 +183,8 @@ public class BundestagApiClient {
                                     plaenarprotokolleActivity.fillListView(processPlaenarprotokolleResponse(responseJson));
                                 }
                             });
-                        } else if (activity instanceof AktivitaetenActivity) {
-                            AktivitaetenActivity aktivitaetenActivity = (AktivitaetenActivity) activity;
+                        } else if (activity instanceof aktivitaetenActivity) {
+                            aktivitaetenActivity aktivitaetenActivity = (de.eahjena.app.wi.bundestags_app.aktivitaetenActivity) activity;
                             aktivitaetenActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

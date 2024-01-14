@@ -17,7 +17,7 @@
             android:name=".drei"
             android:exported="false" />
         <activity
-            android:name=".PersonenActivity"
+            android:name=".aktivitaetenActivity"
             android:exported="false" />
         <activity
             android:name=".CustomListView"

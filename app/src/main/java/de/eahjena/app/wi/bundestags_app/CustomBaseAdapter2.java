@@ -48,3 +48,4 @@ public class CustomBaseAdapter2 extends BaseAdapter {
         return convertView;
     }
 }//Ich habe immer noch keinen blassen Schimmer was hier gemacht wird
+//ich auch nicht
