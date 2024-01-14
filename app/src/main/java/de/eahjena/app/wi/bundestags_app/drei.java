@@ -1,3 +1,4 @@
+
 package de.eahjena.app.wi.bundestags_app;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -5,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class Aktivitaeten extends AppCompatActivity {
-    String AktivitaetenList[] = {"Platzhalter_1","Platzhalter_2","Platzhalter_3","Platzhalter_4","Platzhalter_5" };
+public class drei extends AppCompatActivity {
+    String dreiList[] = {"Platzhalter_1","Platzhalter_2","Platzhalter_3","Platzhalter_4","Platzhalter_5" };
 
-    int AktivitaetenImages [] = {R.drawable.adler,R.drawable.adler,R.drawable.adler,R.drawable.adler,R.drawable.adler };
+    int dreiImages [] = {R.drawable.adler,R.drawable.adler,R.drawable.adler,R.drawable.adler,R.drawable.adler };
 
     //Hier müssen dann die Arrays eingefügt werden
-
-
     ListView listView;
 
     @Override

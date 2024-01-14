@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.List;
 
-import de.eahjena.app.wi.bundestags_app.Aktivitaeten;
 import de.eahjena.app.wi.bundestags_app.PersonenActivity;
 import de.eahjena.app.wi.bundestags_app.personen.Person;
 import de.eahjena.app.wi.bundestags_app.personen.PersonListResponse;

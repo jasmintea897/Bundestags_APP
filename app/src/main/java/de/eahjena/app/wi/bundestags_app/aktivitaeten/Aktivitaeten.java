@@ -27,9 +27,7 @@ public class Aktivitaeten {
             return dokumentart;
         }
 
-        public String getTyp() {
-            return typ;
-        }
+        public String getTyp() {return typ;}
 
         public Integer getWahlperiode() {
             return wahlperiode;
